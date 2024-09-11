@@ -1,0 +1,27 @@
+version: 1
+disable_existing_loggers: False
+
+formatters:
+  default: 
+    format: '[%(asctime)s] #%(levelname)-4s %(pathname)s:%(lineno)d - %(message)s'
+  colored:
+    (): colorlog.ColoredFormatter
+    format: '%(log_color)s[%(asctime)s]%(green)s %(log_color)s#%(levelname)-4s%(reset)s %(message)s'
+    datefmt: '%Y-%m-%d %H:%M:%S'
+    
+handlers:
+  console:
+    class: logging.StreamHandler
+    formatter: colored
+    level: DEBUG
+    stream: ext://sys.stdout
+  file:
+    class: logging.FileHandler
+    formatter: default
+    level: ERROR
+    filename: error.log
+    mode: a
+  
+root:
+  level: DEBUG
+  handlers: [console, file]

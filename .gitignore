@@ -1,0 +1,7 @@
+venv
+__pycache__
+config_dist/.settings.yml
+a.py
+test.py
+error.log
+nats_docker_data/data

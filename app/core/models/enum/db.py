@@ -1,0 +1,6 @@
+from enum import Enum
+
+
+class TransactionLogType(Enum):
+    BALANCE_REPLENISHMENT = 'BALANCE_REPLENISHMENT'
+    BALANCE_WITHDRAWAL = 'BALANCE_WITHDRAWAL'

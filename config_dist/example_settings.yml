@@ -1,0 +1,10 @@
+db:
+  user: ZoRex
+  name: payment_db
+  port: 5432
+  host: localhost
+  scheme: postgresql+asyncpg
+  password: qwer
+nats:
+  port: 4222
+  host: localhost

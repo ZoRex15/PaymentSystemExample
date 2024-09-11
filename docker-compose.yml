@@ -1,0 +1,38 @@
+version: '3.9'
+services:
+  app:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - nats_container
+      - db
+    # volumes:
+    #   - app_data:/PaymentSystem
+  db:
+    image: "postgres:16.2-alpine3.19"
+    volumes:
+      - postgres_docker_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: "payment_db"
+      POSTGRES_USER: "ZoRex"
+      POSTGRES_PASSWORD: "qwer"
+    ports:
+      - "5432:5432"
+  nats_container:
+    image: "nats:latest"
+    volumes:
+      - ./nats_docker_data/data:/data
+      - ./nats_docker_data/config:/config
+    ports:
+      - "4222:4222"
+      - "8222:8222"
+    command: "-c /config/server.conf"
+
+volumes:
+  postgres_docker_data:
+    driver: local
+  nats_docker_data:
+    driver: local
+  app_data:
+    driver: local
