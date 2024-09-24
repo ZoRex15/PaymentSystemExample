@@ -18,7 +18,7 @@
 
 <ol>
     <li>Клонируйте репозиторий на свой компьютер, используя эту команду:</li>
-    <pre><code>git clone https://github.com/kmsint/aiogram_bot_template.git</code></pre>
+    <pre><code>git clone https://github.com/ZoRex15/PaymentSystemExample.git</code></pre>
     <li>Создайте файл <code>.settings.yml</code> в папке <code>config_dist</code> по примеру <code>example_settings.yml</code>.</li>
     <li>Введите команду <code>docker compose up</code>.</li>
     <li>После запуска примените миграции к БД, используя команду:</li>
