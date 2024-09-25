@@ -18,12 +18,12 @@ class DbProvider(Provider):
         engine.dispose(True)
         
     @provide
-    async def get_poll(self, engine: AsyncEngine) -> async_sessionmaker[AsyncSession]:
+    async def get_pool(self, engine: AsyncEngine) -> async_sessionmaker[AsyncSession]:
         return async_sessionmaker(engine, expire_on_commit=False)
     
     @provide(scope=Scope.REQUEST)
-    async def get_session(self, poll: async_sessionmaker[AsyncSession]) -> AsyncIterable[AsyncSession]:
-        async with poll() as session:
+    async def get_session(self, pool: async_sessionmaker[AsyncSession]) -> AsyncIterable[AsyncSession]:
+        async with pool() as session:
             yield session
 
     @provide(scope=Scope.REQUEST)
