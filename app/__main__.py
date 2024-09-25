@@ -15,8 +15,8 @@ async def main():
         dishka = make_async_container(*get_providers())
         app = await dishka.get(FastStream)
         await app.run()
-    except Exception as error:
-        logger.critical('app close', error)
+    finally:
+        logger.info('app stopped')
         await dishka.close()
 
 if __name__ == '__main__':
