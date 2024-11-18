@@ -13,8 +13,8 @@ class CounteragentBalance(BaseModel):
 
 class ReplenishmentBalanceResult(BaseModel):
     status: ReplenishmentOperationStatus
-    error_description: Optional[str]
+    error_description: Optional[str] = None
 
 class WithdrawalBalanceResult(BaseModel):
     status: WithdrawalOperationStatus
-    error_description: Optional[str]
+    error_description: Optional[str] = None
